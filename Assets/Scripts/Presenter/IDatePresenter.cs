@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDatePresenter
 {
-    void Show();
+    void Show(string result);
 }
