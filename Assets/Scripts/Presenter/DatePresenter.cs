@@ -1,15 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DatePresenter : MonoBehaviour, IView
+public class DatePresenter : IDatePresenter
 {
-    public void DisplayResult(string result)
+    [SerializeField] private View view;
+    [SerializeField] private Date model;
+    public DatePresenter(View view)
     {
-        throw new System.NotImplementedException();
+        DateTime time= DateTime.Now;
+        this.view = view;
+        model = new Date(time);
     }
 
-    public string GetInputDate()
+    public void Show()
     {
         throw new System.NotImplementedException();
     }
