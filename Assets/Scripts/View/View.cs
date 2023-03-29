@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class View : MonoBehaviour, IView
 {
     [SerializeField] private Text result;
-    [SerializeField] private IDatePresenter presenter;
+    [SerializeField] private InputField inputDate;
+    private IDatePresenter presenter;
     private void Start()
     {
         presenter = new DatePresenter(this);
@@ -15,6 +16,11 @@ public class View : MonoBehaviour, IView
 
     public void DisplayResult(string result)
     {
-        throw new NotImplementedException();
+        this.result.text = result;
+    }
+
+    public string GetInputDate()
+    {
+        return inputDate.text;
     }
 }
