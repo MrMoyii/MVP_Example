@@ -3,18 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class View : MonoBehaviour, IView
+public class View : MonoBehaviour, IDatePresenter
 {
     private void Start()
     {
         
     }
-    public void DisplayResult(string result)
-    {
-        throw new NotImplementedException();
-    }
 
-    public string GetInputDate()
+    public void Show()
     {
         throw new NotImplementedException();
     }
