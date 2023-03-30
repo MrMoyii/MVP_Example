@@ -8,10 +8,10 @@ public class DatePresenter : IDatePresenter
 {
     [SerializeField] private IView view;
     [SerializeField] private Date dateModel;
+    string result;
 
     public DatePresenter(IView view)
     {
-        string result;
         this.view = view;
         string dateInput = view.GetInputDate();
         
@@ -21,18 +21,18 @@ public class DatePresenter : IDatePresenter
         if (dateInput == String.Empty)
         {
             result = "Por favor, ingrese una fecha válida.";
-            Show(result);
+            Show();
         }
         else if (TryParseInput(dateInput, out converted_dateInput))
         {   // date is correct
             dateModel = new Date(converted_dateInput);
             result = dateModel.DateIsPastPresentOrFuture();
-            Show(result);
+            Show();
         }
         else
         {
             result = "La fecha ingresada es inválida";
-            Show(result);
+            Show();
         }
     }
 
@@ -42,7 +42,7 @@ public class DatePresenter : IDatePresenter
             DateTimeStyles.None, out converted_dateInput);
     }
 
-    public void Show(string result)
+    public void Show()
     {
         view.DisplayResult(result);
     }
