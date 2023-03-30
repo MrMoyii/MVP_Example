@@ -9,11 +9,11 @@ public class View : MonoBehaviour, IView
     [SerializeField] private Text result;
     [SerializeField] private InputField inputDate;
     private IDatePresenter presenter;
-    private void Start()
+    public void Calculate()
     {
         presenter = new DatePresenter(this);
+        presenter.Show();
     }
-
     public void DisplayResult(string result)
     {
         this.result.text = result;
